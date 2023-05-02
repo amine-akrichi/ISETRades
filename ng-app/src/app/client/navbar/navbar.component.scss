@@ -1,0 +1,92 @@
+@import "../../../styles.scss";
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav {
+  height: 80px;
+  background-color: white;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin: 0;
+  width: 100%;
+  position: static;
+  display: flex;
+
+  &__logo {
+    img {
+      height: 80px;
+    }
+  }
+
+  &__list {
+    @include flexCenter();
+  }
+
+  &__item {
+    list-style: none;
+    height: 80px;
+    display: flex;
+    &:hover,
+    &:focus-within {
+      > ul {
+        display: initial;
+      }
+    }
+    a {
+      text-decoration: none;
+      color: black;
+      text-decoration: none;
+      font-size: 1.5em;
+      color: black;
+      margin: 0 10px 0 10px;
+      padding-bottom: 3px;
+      transition: 0.05s ease;
+      display: block;
+      align-self: center;
+    }
+    > a:hover {
+      border-bottom: 3px solid $primaryBlue;
+    }
+
+    &__dropdown__list {
+      position: absolute;
+      display: none;
+      background-color: $primaryBlue;
+      margin-top: 80px;
+      padding: 2vh;
+      width: 200px;
+      list-style: none;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      transition: 4s ease;
+
+      &__item {
+        > a {
+          margin: 2vh;
+          color: white;
+          border-bottom: 1px solid white;
+          font-size: 1.3em;
+          &:hover {
+            filter: brightness(95%);
+            border-bottom: 3px solid;
+          }
+        }
+      }
+    }
+  }
+
+  &__search {
+    @include flexCenter();
+    position: absolute;
+    text-align: center;
+    right: 0;
+    height: 80px;
+    width: 80px;
+    fill: $primaryBlue;
+    transition: 0.5s ease;
+    &:hover {
+      fill: white;
+      background-color: rgb(0, 57, 118);
+    }
+  }
+}
